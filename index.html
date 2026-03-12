@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Мгер & Елизавета — 6 Августа 2026</title>
+<title>Мгер & Элиза — 6 Августа 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Montserrat:wght@200;300;400&family=Noto+Serif+Armenian:wght@300;400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -173,7 +173,7 @@ footer .heart{color:var(--gold);font-size:.9rem;}
   <p class="hero-eyebrow t" data-ru="Вы приглашены на свадьбу" data-hy="Դուք հրավիրված եք հարսանիքին">Вы приглашены на свадьбу</p>
   <h1 class="names">
     <span class="t" data-ru="Мгер" data-hy="Մhер">Мгер</span><br>
-    <em><span class="t" data-ru="&amp; Елизавета" data-hy="&amp; Ելիզավետա">&amp; Елизавета</span></em>
+    <em><span class="t" data-ru="&amp; Элиза" data-hy="&amp; Ելիզա">&amp; Элиза</span></em>
   </h1>
   <div class="divider-line">
     <span></span>
@@ -372,8 +372,8 @@ footer .heart{color:var(--gold);font-size:.9rem;}
     </svg>
     <div class="photo-caption">
       <span class="caption-inner t"
-        data-ru="Мгер &amp; Елизавета"
-        data-hy="Մhер &amp; Ելիզավետա">Мгер &amp; Елизавета</span>
+        data-ru="Мгер &amp; Элиза"
+        data-hy="Մhер &amp; Ելիզա">Мгер &amp; Элиза</span>
     </div>
   </div>
 </section>
@@ -531,7 +531,7 @@ footer .heart{color:var(--gold);font-size:.9rem;}
 
 <!-- FOOTER -->
 <footer>
-  <p>Мгер <span class="heart">♥</span> Елизавета &nbsp;·&nbsp; 6 Августа 2026 &nbsp;·&nbsp; Армения</p>
+  <p>Мгер <span class="heart">♥</span> Элиза &nbsp;·&nbsp; 6 Августа 2026 &nbsp;·&nbsp; Армения</p>
   <p style="margin-top:6px;opacity:.4" class="t" data-ru="Создано с любовью" data-hy="Սարքված սիրով">Создано с любовью</p>
 </footer>
 
@@ -646,7 +646,7 @@ async function sendRSVP(){
   const guests=document.getElementById('f-guests').value;
   const note=document.getElementById('f-note').value.trim();
   if(!name){alert(currentLang==='ru'?'Введите ваше имя.':'Մուտքագրեք ձեր անունը:');return;}
-  const text=`💍 *RSVP — Мгер & Елизавета*\n\n👤 ${name}\n📞 ${phone||'—'}\n${attend==='yes'?'✅ Придёт':'❌ Не придёт'}\n👥 ${guests}\n📝 ${note||'—'}`;
+  const text=`💍 *RSVP — Мгер & Элиза*\n\n👤 ${name}\n📞 ${phone||'—'}\n${attend==='yes'?'✅ Придёт':'❌ Не придёт'}\n👥 ${guests}\n📝 ${note||'—'}`;
   if(BOT_TOKEN==='YOUR_BOT_TOKEN'){showSuccess();return;}
   try{
     const res=await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
