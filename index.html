@@ -874,7 +874,10 @@ async function sendRSVP(){
   try{
     const r=await fetch(`https://api.telegram.org/bot${BOT}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:CID,text,parse_mode:'Markdown'})});
     const d=await r.json();
-    if(d.ok)showOk();else throw new Error(d.description);
+    if(d.ok){
+      alert(lang==='ru'?'Ваш ответ успешно отправлен!':'Ձեր պատասխանը հաջողությամբ ուղարկվեց։');
+      showOk();
+    }else throw new Error(d.description);
   }catch(e){alert(lang==='ru'?'Ошибка. Попробуйте снова.':'Սխալ։ Կրկին փորձեք։');console.error(e);}
 }
 function showOk(){
