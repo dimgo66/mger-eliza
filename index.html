@@ -417,6 +417,27 @@ body {
 }
 .rsvp-form { margin-top: 40px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
 .fg { margin-bottom: 18px; }
+.form-notification {
+  display: none;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.form-notification.success {
+  display: block;
+  background: #e8f5e9;
+  border: 1px solid #4caf50;
+  color: #2e7d32;
+}
+.form-notification.error {
+  display: block;
+  background: #ffebee;
+  border: 1px solid #ef5350;
+  color: #c62828;
+}
 .flbl {
   display: block;
   font-family: 'Jost', sans-serif;
@@ -756,6 +777,7 @@ footer .heart { color: rgba(255,255,255,0.65); }
       Ваши ответы очень помогут нам при организации свадьбы. Ответ ждём до 06.07.2026 г.
     </p>
     <div class="rsvp-form" id="form-wrap">
+      <div class="form-notification" id="form-notification"></div>
       <div class="fg">
         <label class="flbl t" data-ru="СМОЖЕТЕ ЛИ ВЫ ПРИСУТСТВОВАТЬ?" data-hy="ԿԿԱՐՈԱ՞ՆՔ ՀԱՍՏԱՏԵԼ ՁԵՐ ԱՍՆԱՑՈՒԹՅՈՒՆԸ">СМОЖЕТЕ ЛИ ВЫ ПРИСУТСТВОВАТЬ?</label>
         <div class="radio-wrap">
@@ -870,16 +892,32 @@ async function sendRSVP(){
   const phone=document.getElementById('f-phone').value.trim();
   const attend=document.querySelector('input[name="attend"]:checked').value;
   const guests=document.getElementById('f-guests').value;
-  if(!name){alert(lang==='ru'?'Введите ваше имя.':'Մուտքագրեք ձեր անունը։');return;}
+  const notif=document.getElementById('form-notification');
+  
+  if(!name){
+    showNotification(lang==='ru'?'Введите ваше имя.':'Մուտքագրեք ձեր անունը։','error');
+    return;
+  }
+  
   const text=`💍 *RSVP — Мгер & Элиза*\n\n👤 ${name}\n📞 ${phone||'—'}\n${attend==='yes'?'✅ Придёт':'❌ Не придёт'}\n👥 Гостей: ${guests}`;
+  
   try{
     const r=await fetch(`https://api.telegram.org/bot${BOT}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:CID,text,parse_mode:'Markdown'})});
     const d=await r.json();
     if(d.ok){
-      alert(lang==='ru'?'Ваш ответ успешно отправлен!':'Ձեր պատասխանը հաջողությամբ ուղարկվեց։');
-      showOk();
+      showNotification(lang==='ru'?'Ваш ответ успешно отправлен!':'Ձեր պատասխանը հաջողությամբ ուղարկվեց։','success');
+      setTimeout(showOk,1500);
     }else throw new Error(d.description);
-  }catch(e){alert(lang==='ru'?'Ошибка. Попробуйте снова.':'Սխալ։ Կրկին փորձեք։');console.error(e);}
+  }catch(e){
+    showNotification(lang==='ru'?'Ошибка отправки. Попробуйте снова.':'Սխալ։ Կրկին փորձեք։','error');
+    console.error(e);
+  }
+}
+function showNotification(msg,type){
+  const n=document.getElementById('form-notification');
+  n.textContent=msg;
+  n.className='form-notification '+type;
+  n.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 function showOk(){
   document.getElementById('form-wrap').style.display='none';
