@@ -62,12 +62,14 @@ body {
 /* ─── HERO ──────────────────────── */
 .hero {
   position: relative; z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-height: 90vh;
   background: var(--olive);
   overflow: visible;
+  padding: 40px 24px;
 }
 
 /* LEFT side: stacked date numbers */
@@ -76,8 +78,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 0 40px 120px;
+  padding: 0 0 40px 0;
   position: relative;
+  border-bottom: 1px solid var(--border);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 .hero-date-stack {
   position: relative;
@@ -104,11 +110,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 120px 40px 40px;
+  padding: 40px 24px 0 24px;
   max-width: 520px;
   margin: 0 auto;
   text-align: center;
   border-left: none;
+  width: 100%;
 }
 .hero-pre {
   font-family: 'Jost', sans-serif;
@@ -133,18 +140,6 @@ body {
   font-family: 'Noto Serif Armenian', 'Cormorant Garamond', serif;
   font-size: clamp(30px, 4vw, 52px);
 }
-.hero-sub {
-  font-family: 'Jost', sans-serif;
-  font-size: 16px; font-weight: 700;
-  letter-spacing: 0.5em; text-transform: uppercase;
-  color: var(--cream);
-  opacity: 0; animation: fadeUp 0.7s 0.6s forwards;
-  margin-bottom: 40px;
-}
-.hero-arrow {
-  opacity: 0; animation: fadeIn 1s 1.2s forwards;
-}
-.hero-arrow svg { animation: arrowBounce 2s 1.8s infinite; }
 
 /* countdown strip */
 .cd-strip {
@@ -574,21 +569,11 @@ footer .heart { color: var(--cream); }
 
 /* ─── MOBILE ─────────────────────── */
 @media (max-width: 680px) {
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left {
-    display: flex;
-    padding: 30px 24px 20px 24px;
-    justify-content: center;
-    border-bottom: none;
-  }
+  .hero { padding: 30px 20px; }
+  .hero-left { padding: 0 0 30px 0; }
+  .hero-right { padding: 30px 20px 0 20px; }
   .hero-date-num { font-size: clamp(72px, 22vw, 120px); }
-  .hero-right {
-    padding: 20px 22px 30px;
-    max-width: 360px;
-    border-left: none;
-  }
   .hero-pre { font-size: 17px; font-weight: 600; }
-  .hero-sub { font-size: 17px; font-weight: 700; }
   .invite-inner { grid-template-columns: 1fr; }
   .invite-inner { border-bottom: none; }
   .invite-left { border-right: none; padding-right: 0; padding-bottom: 40px; border-bottom: none; }
