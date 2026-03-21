@@ -80,7 +80,6 @@ body {
   justify-content: center;
   padding: 0 0 40px 0;
   position: relative;
-  border-bottom: 1px solid var(--border);
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
@@ -569,8 +568,8 @@ footer .heart { color: var(--cream); }
 
 /* ─── MOBILE ─────────────────────── */
 @media (max-width: 680px) {
-  .hero { padding: 20px 16px; min-height: auto; overflow-x: hidden; }
-  .hero-left { padding: 0 0 20px 0; width: 100%; }
+  .hero { padding: 20px 16px; min-height: auto; overflow-x: hidden; width: 100%; max-width: 100%; }
+  .hero-left { padding: 0 0 20px 0; width: 100%; max-width: 100%; }
   .hero-right { padding: 20px 16px 0 16px; width: 100%; max-width: 100%; }
   .hero-date-num { font-size: clamp(72px, 22vw, 120px); }
   .hero-pre { font-size: 17px; font-weight: 600; }
