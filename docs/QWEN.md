@@ -5,20 +5,36 @@
 A single-page, bilingual (Russian/Armenian) wedding invitation website for **Мгер & Елизавета**, celebrating their wedding on **August 6, 2026** in Armenia.
 
 The site is a self-contained HTML file with embedded CSS and JavaScript, featuring:
-- Elegant gold/ivory color scheme with romantic styling
+- Elegant olive/cream color scheme with romantic styling
 - Bilingual support (RU/ՀՅ) with live language switching
-- Animated SVG illustration of the couple
 - Wedding day timeline/schedule
 - Venue information (Church & Restaurant)
 - Live countdown timer to the wedding date
 - RSVP form with Telegram integration
-- Decorative particle effects (falling petals, cursor trail with hearts/sparkles)
+- Decorative particle effects (falling petals)
 
 ## File Structure
 
 ```
 mger-elizaveta/
-└── wedding-invitation.html    # Single-file website (HTML + CSS + JS)
+├── index.html           # Main website (HTML + CSS + JS)
+├── assets/
+│   └── images/
+│       ├── favicon.svg    # Site icon
+│       ├── pattern-01.svg # Decorative patterns
+│       ├── pattern-02.svg
+│       ├── pattern-03.svg
+│       ├── pattern-04.svg
+│       ├── pattern-05.svg
+│       └── pattern-06.svg
+├── tools/
+│   └── setup/             # Setup scripts
+├── docs/
+│   ├── AGENTS.md          # Development guidelines
+│   ├── QWEN.md            # This file
+│   ├── _pgbackup/         # Page backups
+│   └── _pginfo/           # Page info
+└── vercel.json            # Vercel configuration
 ```
 
 ## Technologies
@@ -26,8 +42,8 @@ mger-elizaveta/
 - **HTML5** — Semantic structure
 - **CSS3** — Custom styling with CSS variables, animations, gradients
 - **Vanilla JavaScript** — No frameworks; all interactivity is custom-coded
-- **SVG** — Inline vector graphics for decorations and the couple illustration
-- **Google Fonts** — Cormorant Garamond, EB Garamond, Montserrat, Noto Serif Armenian
+- **SVG** — Inline vector graphics for decorations
+- **Google Fonts** — Playfair Display, Cormorant Garamond, Great Vibes, Jost, Montserrat, Noto Serif Armenian
 
 ## Key Features
 
@@ -75,7 +91,7 @@ The form sends responses to a Telegram bot. To enable:
 No build process required. This is a static HTML file.
 
 ### To Preview Locally
-1. Open `wedding-invitation.html` directly in a browser, or
+1. Open `index.html` directly in a browser, or
 2. Serve via a local server:
    ```bash
    # Python 3
@@ -87,14 +103,14 @@ No build process required. This is a static HTML file.
    # PHP
    php -S localhost:8000
    ```
-3. Navigate to `http://localhost:8000/wedding-invitation.html`
+3. Navigate to `http://localhost:8000/`
 
 ### To Deploy
-Upload `wedding-invitation.html` to any static hosting:
+Upload the project to any static hosting:
 - GitHub Pages
-- Netlify / Vercel
+- Netlify / Vercel (configured via `vercel.json`)
 - Traditional web hosting
-- Yandex.Disk public folder (current setup)
+- Yandex.Disk public folder
 
 ## Customization Guide
 

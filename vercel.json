@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/wedding-invitation.html"
+      "destination": "/index.html"
     }
   ]
 }

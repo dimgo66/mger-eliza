@@ -25,3 +25,12 @@ node_modules/
 # Build outputs
 dist/
 build/
+
+# Project temp/backups
+_pgbackup/
+_pginfo/
+pinegrow.json
+*.bac.html
+
+# Local screenshots/exports
+Снимок экрана*.png
